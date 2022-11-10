@@ -13,6 +13,11 @@ function love.load()
 
     love.graphics.setFont(gFonts['small'])
 
+    gStateMachine = StateMachine {
+        ['start'] = function() return StartState() end,
+    }
+    gStateMachine:change('start')
+
     love.keyboard.keysPressed = {}
 end
 
@@ -29,10 +34,12 @@ function love.keyboard.wasPressed(key)
 end
 
 function love.update(dt)
+    gStateMachine:update(dt)
+    love.keyboard.keysPressed = {}
 end
 
 function love.draw()
     push:start()
-    
+    gStateMachine:render()
     push:finish()
 end
