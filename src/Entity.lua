@@ -6,6 +6,7 @@ function Entity:init(def)
     -- in top-down games, there are four directions instead of two
     self.direction = 'down'
 
+    self.animations = self:createAnimations(def.animations)
     -- dimensions
     self.x = def.x
     self.y = def.y
@@ -19,17 +20,37 @@ function Entity:init(def)
 
 end
 
+function Entity:createAnimations(animations)
+    local animationsReturned = {}
+
+    for k, animationDef in pairs(animations) do
+        animationsReturned[k] = Animation {
+            texture = animationDef.texture or 'entities',
+            frames = animationDef.frames,
+            interval = animationDef.interval
+        }
+    end
+
+    return animationsReturned
+end
 
 
 function Entity:changeState(name)
     self.stateMachine:change(name)
 end
 
+function Entity:changeAnimation(name)
+    self.currentAnimation = self.animations[name]
+end
 
 
 function Entity:update(dt)
 
     self.stateMachine:update(dt)
+    
+    if self.currentAnimation then
+        self.currentAnimation:update(dt)
+    end
 
 end
 
