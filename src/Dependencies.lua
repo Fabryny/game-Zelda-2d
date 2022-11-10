@@ -3,10 +3,14 @@ push = require 'lib/push'
 
 
 require 'src/constants'
+require 'src/Entity'
+require 'src/Player'
 
 require 'src/states/BaseState'
 require 'src/StateMachine'
+
 require 'src/states/game/StartState'
+require 'src/states/game/PlayState'
 
 gTextures = {
     ['background'] = love.graphics.newImage('graphics/background.png'),

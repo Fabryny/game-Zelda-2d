@@ -7,7 +7,7 @@ function StartState:update(dt)
     end
 
     if love.keyboard.wasPressed('enter') or love.keyboard.wasPressed('return') then
-        love.graphics.printf('Hellow', 0, VIRTUAL_HEIGHT / 2 , VIRTUAL_WIDTH / 2, 'center')
+        gStateMachine:change('play')
     end
 end
 
