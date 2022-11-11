@@ -33,6 +33,7 @@ require 'src/states/entity/player/PlayerSwingSwordState'
 
 require 'src/states/game/StartState'
 require 'src/states/game/PlayState'
+require 'src/states/game/GameOverState'
 
 gTextures = {
     ['tiles'] = love.graphics.newImage('graphics/tilesheet.png'),
