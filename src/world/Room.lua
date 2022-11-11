@@ -8,7 +8,9 @@ function Room:init(player)
     self.tiles = {}
     self:generateWallsAndFloors()
 
+    -- game objects in the room
     self.objects = {}
+    self:generateObjects()
 
 
 
@@ -30,6 +32,33 @@ function Room:init(player)
     self.adjacentOffsetX = 0
     self.adjacentOffsetY = 0
 end
+
+function Room:generateObjects()
+    local switch = GameObject(
+        GAME_OBJECT_DEFS['switch'],
+        math.random(MAP_RENDER_OFFSET_X + TILE_SIZE,
+                    VIRTUAL_WIDTH - TILE_SIZE * 2 - 16),
+        math.random(MAP_RENDER_OFFSET_Y + TILE_SIZE,
+                    VIRTUAL_HEIGHT - (VIRTUAL_HEIGHT - MAP_HEIGHT * TILE_SIZE) + MAP_RENDER_OFFSET_Y - TILE_SIZE - 16)
+    )
+
+    -- define a function for the switch that will open all doors in the room
+    switch.onCollide = function()
+        if switch.state == 'unpressed' then
+            switch.state = 'pressed'
+            
+            -- open every door in the room if we press the switch
+            for k, doorway in pairs(self.doorways) do
+                doorway.open = true
+            end
+
+        end
+    end
+
+    -- add to list of objects in scene (only one switch for now)
+    table.insert(self.objects, switch)
+end
+
 
 
 
@@ -80,11 +109,13 @@ function Room:update(dt)
     self.player:update(dt)
 
    
-
     for k, object in pairs(self.objects) do
         object:update(dt)
 
-      
+        -- trigger collision callback on object
+        if self.player:collides(object) then
+            object:onCollide()
+        end
     end
 end
 
