@@ -28,6 +28,7 @@ require 'src/states/game/PlayState'
 gTextures = {
     ['tiles'] = love.graphics.newImage('graphics/tilesheet.png'),
     ['background'] = love.graphics.newImage('graphics/background.png'),
+    ['hearts'] = love.graphics.newImage('graphics/hearts.png'),
     ['character-walk'] = love.graphics.newImage('graphics/character_walk.png'),
 }
 
@@ -44,4 +45,5 @@ gFonts = {
 gFrames = {
     ['tiles'] = GenerateQuads(gTextures['tiles'], 16, 16),
     ['character-walk'] = GenerateQuads(gTextures['character-walk'], 16, 32),
+    ['hearts'] = GenerateQuads(gTextures['hearts'], 16, 16),
 }

@@ -17,6 +17,10 @@ function Entity:init(def)
     self.offsetX = def.offsetX or 0
     self.offsetY = def.offsetY or 0
 
+    
+    self.health = def.health
+
+
 
 end
 
