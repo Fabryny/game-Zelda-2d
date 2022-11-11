@@ -1,3 +1,5 @@
+
+Event = require 'lib/knife.event'
 Class = require 'lib/class'
 push = require 'lib/push'
 
@@ -19,8 +21,10 @@ require 'src/StateMachine'
 
 
 require 'src/states/entity/EntityIdleState'
+require 'src/states/entity/EntityWalkState'
 
 require 'src/states/entity/player/PlayerIdleState'
+require 'src/states/entity/player/PlayerWalkState'
 
 require 'src/states/game/StartState'
 require 'src/states/game/PlayState'

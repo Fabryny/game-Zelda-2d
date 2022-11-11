@@ -23,6 +23,7 @@ function PlayState:init()
     
 
     self.player.stateMachine = StateMachine {
+        ['walk'] = function() return PlayerWalkState(self.player, self.dungeon) end,
         ['idle'] = function() return PlayerIdleState(self.player) end,
     }
     

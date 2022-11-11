@@ -29,6 +29,7 @@ function EntityIdleState:processAI(params, dt)
         self.waitTimer = self.waitTimer + dt
 
         if self.waitTimer > self.waitDuration then
+            self.entity:changeState('walk')
         end
     end
 end

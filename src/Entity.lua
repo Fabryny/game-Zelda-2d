@@ -17,6 +17,7 @@ function Entity:init(def)
     self.offsetX = def.offsetX or 0
     self.offsetY = def.offsetY or 0
 
+    self.walkSpeed = def.walkSpeed
     
     self.health = def.health
 
