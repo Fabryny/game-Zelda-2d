@@ -95,9 +95,6 @@ function Room:generateObjects()
     table.insert(self.objects, switch)
 end
 
-
-
-
 --[[
     Generates the walls and floors of the room, randomizing the various varieties
     of said tiles for visual variety.
@@ -155,7 +152,15 @@ function Room:update(dt)
             entity:update(dt)
         end
 
-        -- make  collision between the player and entities in the room
+        -- collision between the player and entities in the room
+        if not entity.dead and self.player:collides(entity) and not self.player.invulnerable then
+            self.player:damage(1)
+            self.player:goInvulnerable(1.5)
+
+        --[[     if self.player.health == 0 then
+                gStateMachine:change('game-over')
+            end ]]
+        end
     
     end
 
