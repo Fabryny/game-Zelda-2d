@@ -51,6 +51,13 @@ end
 
 function PlayerSwingSwordState:update(dt)
 
+       -- check if hitbox collides with any entities in the scene
+       for k, entity in pairs(self.dungeon.currentRoom.entities) do
+        if entity:collides(self.swordHitbox) then
+            entity:damage(1)
+        end
+    end
+
     -- if we've fully elapsed through one cycle of animation, change back to idle state
     if self.player.currentAnimation.timesPlayed > 0 then
         self.player.currentAnimation.timesPlayed = 0
