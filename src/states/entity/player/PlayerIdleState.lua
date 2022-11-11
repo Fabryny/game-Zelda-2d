@@ -14,4 +14,7 @@ function PlayerIdleState:update(dt)
         self.entity:changeState('walk')
     end
 
+    if love.keyboard.wasPressed('space') then
+        self.entity:changeState('swing-sword')
+    end
 end

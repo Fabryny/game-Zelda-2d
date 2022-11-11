@@ -10,6 +10,7 @@ require 'src/Entity'
 require 'src/entity_defs'
 require 'src/Player'
 require 'src/Util'
+require 'src/Hitbox'
 
 
 require 'src/world/Doorway'
@@ -25,6 +26,7 @@ require 'src/states/entity/EntityWalkState'
 
 require 'src/states/entity/player/PlayerIdleState'
 require 'src/states/entity/player/PlayerWalkState'
+require 'src/states/entity/player/PlayerSwingSwordState'
 
 require 'src/states/game/StartState'
 require 'src/states/game/PlayState'
@@ -34,6 +36,7 @@ gTextures = {
     ['background'] = love.graphics.newImage('graphics/background.png'),
     ['hearts'] = love.graphics.newImage('graphics/hearts.png'),
     ['character-walk'] = love.graphics.newImage('graphics/character_walk.png'),
+    ['character-swing-sword'] = love.graphics.newImage('graphics/character_swing_sword.png'),
 }
 
 gFonts = {
@@ -50,4 +53,5 @@ gFrames = {
     ['tiles'] = GenerateQuads(gTextures['tiles'], 16, 16),
     ['character-walk'] = GenerateQuads(gTextures['character-walk'], 16, 32),
     ['hearts'] = GenerateQuads(gTextures['hearts'], 16, 16),
+    ['character-swing-sword'] = GenerateQuads(gTextures['character-swing-sword'], 32, 32),
 }
