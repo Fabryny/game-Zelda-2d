@@ -41,6 +41,7 @@ gTextures = {
     ['character-walk'] = love.graphics.newImage('graphics/character_walk.png'),
     ['character-swing-sword'] = love.graphics.newImage('graphics/character_swing_sword.png'),
     ['switches'] = love.graphics.newImage('graphics/switches.png'),
+    ['entities'] = love.graphics.newImage('graphics/entities.png')
 }
 
 gFonts = {
@@ -58,5 +59,6 @@ gFrames = {
     ['character-walk'] = GenerateQuads(gTextures['character-walk'], 16, 32),
     ['hearts'] = GenerateQuads(gTextures['hearts'], 16, 16),
     ['character-swing-sword'] = GenerateQuads(gTextures['character-swing-sword'], 32, 32),
-    ['switches'] = GenerateQuads(gTextures['switches'], 16, 18)
+    ['switches'] = GenerateQuads(gTextures['switches'], 16, 18),
+    ['entities'] = GenerateQuads(gTextures['entities'], 16, 16),
 }
