@@ -29,6 +29,10 @@ function PlayState:init()
     }
     
     self.player:changeState('idle')
+    
+
+    gSounds['music']:setLooping(true)
+    gSounds['music']:play()
 
 end
 

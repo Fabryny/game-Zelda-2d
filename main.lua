@@ -19,7 +19,6 @@ function love.load()
         ['game-over'] = function() return GameOverState() end
     }
     gStateMachine:change('start')
-
     love.keyboard.keysPressed = {}
 end
 

@@ -88,6 +88,8 @@ function Room:generateObjects()
                 doorway.open = true
             end
 
+            gSounds['door']:play()
+
         end
     end
 
@@ -154,11 +156,13 @@ function Room:update(dt)
 
         -- collision between the player and entities in the room
         if not entity.dead and self.player:collides(entity) and not self.player.invulnerable then
+            gSounds['hit-player']:play()
             self.player:damage(1)
             self.player:goInvulnerable(1.5)
 
             if self.player.health == 0 then
                 gStateMachine:change('game-over')
+                gSounds['music']:stop()
             end
         end
     

@@ -99,6 +99,7 @@ function Dungeon:beginShifting(shiftX, shiftY)
             doorway.open = false
         end
 
+        gSounds['door']:play()
     end)
 end
 

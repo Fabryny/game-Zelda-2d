@@ -44,7 +44,8 @@ end
 
 function PlayerSwingSwordState:enter(params)
 
-
+    gSounds['sword']:stop()
+    gSounds['sword']:play()
     -- restart sword swing animation
     self.player.currentAnimation:refresh()
 end
@@ -55,6 +56,7 @@ function PlayerSwingSwordState:update(dt)
        for k, entity in pairs(self.dungeon.currentRoom.entities) do
         if entity:collides(self.swordHitbox) then
             entity:damage(1)
+            gSounds['hit-enemy']:play()
         end
     end
 

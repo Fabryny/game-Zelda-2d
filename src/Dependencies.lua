@@ -45,6 +45,15 @@ gTextures = {
     ['entities'] = love.graphics.newImage('graphics/entities.png')
 }
 
+gFrames = {
+    ['tiles'] = GenerateQuads(gTextures['tiles'], 16, 16),
+    ['character-walk'] = GenerateQuads(gTextures['character-walk'], 16, 32),
+    ['hearts'] = GenerateQuads(gTextures['hearts'], 16, 16),
+    ['character-swing-sword'] = GenerateQuads(gTextures['character-swing-sword'], 32, 32),
+    ['switches'] = GenerateQuads(gTextures['switches'], 16, 18),
+    ['entities'] = GenerateQuads(gTextures['entities'], 16, 16),
+}
+
 gFonts = {
     ['small'] = love.graphics.newFont('fonts/font.ttf', 8),
     ['medium'] = love.graphics.newFont('fonts/font.ttf', 16),
@@ -55,11 +64,11 @@ gFonts = {
     ['zelda-small'] = love.graphics.newFont('fonts/zelda.otf', 32)
 }
 
-gFrames = {
-    ['tiles'] = GenerateQuads(gTextures['tiles'], 16, 16),
-    ['character-walk'] = GenerateQuads(gTextures['character-walk'], 16, 32),
-    ['hearts'] = GenerateQuads(gTextures['hearts'], 16, 16),
-    ['character-swing-sword'] = GenerateQuads(gTextures['character-swing-sword'], 32, 32),
-    ['switches'] = GenerateQuads(gTextures['switches'], 16, 18),
-    ['entities'] = GenerateQuads(gTextures['entities'], 16, 16),
+
+gSounds = {
+    ['music'] = love.audio.newSource('sounds/music.mp3', 'static'),
+    ['sword'] = love.audio.newSource('sounds/sword.wav', 'static'),
+    ['hit-enemy'] = love.audio.newSource('sounds/hit_enemy.wav', 'static'),
+    ['hit-player'] = love.audio.newSource('sounds/hit_player.wav', 'static'),
+    ['door'] = love.audio.newSource('sounds/door.wav', 'static')
 }
