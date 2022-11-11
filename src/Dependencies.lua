@@ -7,8 +7,12 @@ require 'src/constants'
 require 'src/Entity'
 require 'src/entity_defs'
 require 'src/Player'
+require 'src/Util'
 
+
+require 'src/world/Doorway'
 require 'src/world/Dungeon'
+require 'src/world/Room'
 
 require 'src/states/BaseState'
 require 'src/StateMachine'
@@ -22,6 +26,7 @@ require 'src/states/game/StartState'
 require 'src/states/game/PlayState'
 
 gTextures = {
+    ['tiles'] = love.graphics.newImage('graphics/tilesheet.png'),
     ['background'] = love.graphics.newImage('graphics/background.png'),
     ['character-walk'] = love.graphics.newImage('graphics/character_walk.png'),
 }
@@ -34,4 +39,9 @@ gFonts = {
     ['gothic-large'] = love.graphics.newFont('fonts/GothicPixels.ttf', 32),
     ['zelda'] = love.graphics.newFont('fonts/zelda.otf', 64),
     ['zelda-small'] = love.graphics.newFont('fonts/zelda.otf', 32)
+}
+
+gFrames = {
+    ['tiles'] = GenerateQuads(gTextures['tiles'], 16, 16),
+    ['character-walk'] = GenerateQuads(gTextures['character-walk'], 16, 32),
 }

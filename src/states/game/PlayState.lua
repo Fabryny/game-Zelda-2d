@@ -19,6 +19,8 @@ function PlayState:init()
     }
 
     self.dungeon = Dungeon(self.player)
+    self.currentRoom = Room(self.player)
+    
 
     self.player.stateMachine = StateMachine {
         ['idle'] = function() return PlayerIdleState(self.player) end,

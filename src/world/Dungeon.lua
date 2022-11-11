@@ -8,7 +8,7 @@ function Dungeon:init(player)
     self.rooms = {}
 
     -- current room we're operating in
-    self.currentRoom = nil
+    self.currentRoom = Room(self.player)
 
     -- room we're moving camera to during a shift; becomes active room afterwards
     self.nextRoom = nil
@@ -25,9 +25,11 @@ end
 
 function Dungeon:update(dt)
     
-  
+    -- still update the player animation if we're shifting rooms
+    self.player.currentAnimation:update(dt)
 end
 
 function Dungeon:render()
-   
+    self.currentRoom:render()
+    
 end
