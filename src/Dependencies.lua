@@ -2,6 +2,7 @@
 Event = require 'lib/knife.event'
 Class = require 'lib/class'
 push = require 'lib/push'
+Timer = require 'lib/knife.timer'
 
 
 require 'src/Animation'

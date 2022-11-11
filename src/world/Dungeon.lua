@@ -102,6 +102,25 @@ function Dungeon:beginShifting(shiftX, shiftY)
     end)
 end
 
+--[[
+    Resets a few variables needed to perform a camera shift and swaps the next and
+    current room.
+]]
+function Dungeon:finishShifting()
+
+    -- reset camera and deactivate shifting to avoid translation
+    self.cameraX = 0
+    self.cameraY = 0
+    self.shifting = false
+
+    -- point to transitioned room as the new active room, pointing to an empty room next
+    self.currentRoom = self.nextRoom
+    self.nextRoom = nil
+
+    -- this room (previously the off-screen room) should now be in the center, not offset
+    self.currentRoom.adjacentOffsetX = 0
+    self.currentRoom.adjacentOffsetY = 0 
+end
 
 
 function Dungeon:update(dt)
